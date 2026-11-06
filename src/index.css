@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hide scrollbar chrome without disabling scroll — keeps the reveal cinematic. */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+body::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 9999px;
+}
+
+/* Lock scrolling until the curtain is opened. */
+body[data-locked='true'] {
+  overflow: hidden;
+}
+
+@layer utilities {
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .text-shadow-glow {
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.35), 0 0 90px rgba(255, 170, 80, 0.25);
+  }
+  /* Paper grain for the scrapbook pages. */
+  .paper-texture {
+    background-color: #f7f1e4;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.035) 0 1px, transparent 1px),
+      radial-gradient(circle at 70% 60%, rgba(0, 0, 0, 0.03) 0 1px, transparent 1px),
+      radial-gradient(circle at 45% 85%, rgba(0, 0, 0, 0.025) 0 1px, transparent 1px);
+    background-size: 7px 7px, 11px 11px, 13px 13px;
+  }
+  /* Red velvet curtain: vertical pleats with deep crimson shadow valleys. */
+  .velvet {
+    background-color: #6b0f16;
+    background-image: repeating-linear-gradient(
+      90deg,
+      #8c1420 0px,
+      #b11b2a 14px,
+      #6d0c14 34px,
+      #4a070d 46px,
+      #8c1420 62px
+    );
+    box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.75);
+  }
+  .gingham {
+    background-image:
+      repeating-linear-gradient(0deg, rgba(224, 122, 95, 0.4) 0 6px, transparent 6px 12px),
+      repeating-linear-gradient(90deg, rgba(224, 122, 95, 0.4) 0 6px, transparent 6px 12px);
+  }
+}
