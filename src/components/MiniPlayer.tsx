@@ -17,7 +17,7 @@ export default function MiniPlayer() {
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 220, damping: 24, delay: 0.6 }}
-          className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2"
+          className="fixed bottom-6 right-6 z-50"
         >
           <div className="flex items-center gap-3 rounded-full border border-white/10 bg-black/80 px-4 py-2 text-white shadow-2xl backdrop-blur-md">
             {/* Spinning album art */}

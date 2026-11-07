@@ -16,7 +16,7 @@ interface AudioState {
   isPlaying: boolean;
   /** No audioUrl configured, or the file failed to load. */
   unavailable: boolean;
-  start: () => void;
+  start: (fromSec?: number) => void;
   toggle: () => void;
 }
 
@@ -49,10 +49,11 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   }, []);
 
   /** Called from the curtain click — a real user gesture, so autoplay is allowed. */
-  const start = useCallback(() => {
+  const start = useCallback((fromSec = 0) => {
     setStarted(true);
     const el = audioRef.current;
     if (!el) return;
+    if (fromSec > 0) el.currentTime = fromSec;
     el.play()
       .then(() => setIsPlaying(true))
       .catch(() => setIsPlaying(false));

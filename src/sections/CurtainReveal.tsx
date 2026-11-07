@@ -215,14 +215,14 @@ export default function CurtainReveal({ onOpened }: { onOpened: () => void }) {
   const openCurtain = useCallback(() => {
     if (stage !== 'curtain') return;
     setStage('rolling');
-    start();
     onOpened();
-  }, [stage, start, onOpened]);
+  }, [stage, onOpened]);
 
   const blowOut = useCallback(() => {
     if (stage !== 'locked') return;
     setStage('melting');
-  }, [stage]);
+    start(13); // music begins at 0:13 when the candle is blown out
+  }, [stage, start]);
 
   // Melt runs for 1.8s, then the new age arrives with confetti.
   useEffect(() => {
@@ -280,7 +280,11 @@ export default function CurtainReveal({ onOpened }: { onOpened: () => void }) {
       {stage === 'celebrate' && <Balloons />}
 
       {/* ----------------------------------------------- the number */}
-      <div className="relative z-10 flex flex-col items-center">
+      <div
+        className="relative z-10 flex flex-col items-center transition-[margin] duration-700"
+        // Lift the number + caption clear of the cake (it occupies the bottom ~270px).
+        style={{ marginBottom: stage === 'celebrate' ? 280 : 0 }}
+      >
         <AnimatePresence mode="wait">
           {showNumber && (
             <motion.div
@@ -336,7 +340,7 @@ export default function CurtainReveal({ onOpened }: { onOpened: () => void }) {
                 key="hint"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: [0.35, 1, 0.35], y: 0 }}
-                exit={{ opacity: 0 }}
+                exit={{ opacity: 0, y: 0, transition: { duration: 0.15, repeat: 0 } }}
                 transition={{ opacity: { duration: 2, repeat: Infinity }, y: { duration: 0.4 } }}
                 className="text-sm font-medium uppercase tracking-[0.3em] text-white/70"
               >
@@ -351,7 +355,7 @@ export default function CurtainReveal({ onOpened }: { onOpened: () => void }) {
                 transition={{ delay: 0.45 }}
                 className="font-serif text-2xl italic text-white/90"
               >
-                Twenty-three looks good on you, {girlfriendName}.
+                Twenty-sixth looks good on you, {girlfriendName}.
               </motion.p>
             )}
           </AnimatePresence>

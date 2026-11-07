@@ -80,30 +80,26 @@ export const birthdayConfig = {
 
   greeting: {
     heading: 'Happy Birthday',
-    paragraph: `Every year I think I have run out of ways to tell you how much
-you mean to me, and every year you make the list longer. These are a few of
-the moments I keep going back to — the loud ones, the quiet ones, the ones
-where you are laughing at something only you found funny. Scroll on. All of
-it is yours.`,
+    paragraph: `I know I don't always find the right words to tell you how much you mean to me, so I put my heart into making this instead. I find myself constantly replaying all the beautiful moments we've shared, and putting this together brought every single one of them rushing back. Make sure the volume is up — I had to include our song. Take your time scrolling through. Every detail here is a piece of us that I cherish, and this little space is entirely yours. Happy Birthday. I can't wait for all the memories we haven't even made yet. ❤️`,
   },
 
   /* --------------------------------- SECTION 3 — draggable polaroid board */
   polaroids: [
-    { id: 1, imageUrl: p('pola-1'), caption: 'Cutie ❤️',        x: 8,  y: 14, rotation: -8 },
-    { id: 2, imageUrl: p('pola-2'), caption: 'Sunshine ✨',      x: 26, y: 8,  rotation: 5 },
-    { id: 3, imageUrl: p('pola-3'), caption: 'Dream Girl 💕',    x: 45, y: 16, rotation: -4 },
-    { id: 4, imageUrl: p('pola-4'), caption: 'My favourite 🌙', x: 64, y: 9,  rotation: 9 },
-    { id: 5, imageUrl: p('pola-5'), caption: 'Troublemaker 😚',  x: 14, y: 52, rotation: 7 },
-    { id: 6, imageUrl: p('pola-6'), caption: 'Us, always 🤍',    x: 34, y: 58, rotation: -6 },
-    { id: 7, imageUrl: p('pola-7'), caption: 'Prettiest 🌸',     x: 55, y: 54, rotation: 4 },
-    { id: 8, imageUrl: p('pola-8'), caption: 'Home 🏠',          x: 73, y: 50, rotation: -9 },
+    { id: 1, imageUrl: pj('ribbon-010'), caption: 'Cutie ❤️',        x: 8,  y: 14, rotation: -8 },
+    { id: 2, imageUrl: pj('pol-002'), caption: 'Sunshine ✨',      x: 26, y: 8,  rotation: 5 },
+    { id: 3, imageUrl: pj('ribbon-006'), caption: 'Dream Girl 💕',    x: 45, y: 16, rotation: -4 },
+    { id: 4, imageUrl: pj('gal-007'), caption: 'My favourite 🌙', x: 64, y: 9,  rotation: 9 },
+    { id: 5, imageUrl: pj('gal-016'), caption: 'Sexiest 😚',  x: 14, y: 52, rotation: 7 },
+    { id: 6, imageUrl: pj('ribbon-001'), caption: 'Us, always 🤍',    x: 34, y: 58, rotation: -6 },
+    { id: 7, imageUrl: pj('ribbon-005'), caption: 'Prettiest 🌸',     x: 55, y: 54, rotation: 4 },
+    { id: 8, imageUrl: pj('ribbon-002'), caption: 'Home 🏠',          x: 73, y: 50, rotation: -9 },
   ] as Polaroid[],
 
   /** Butterfly easter eggs — one note per butterfly. */
   secretNotes: [
-    'You fell asleep on my shoulder on that long drive and I did not move for two hours because I did not want to wake you. Best two hours of that year.',
-    'I still have the first thing you ever wrote to me. I read it more often than I will admit out loud.',
-    'If I had to do all of it again — every detour, every bad day — I would, as long as it ended with you here. Happy birthday, my love.',
+    'I planned to ask you out after every badminton session, but I always got so so nervous around you! Your cuteness always has that effect on me. I’m so glad you said yes when I finally did ask.',
+    'I can remember more sexy photos, but all of them were view once sadly, but they literally made it "hard" to work!!',
+    'I told you before that i like your voice, but I like it more when your thighs are wrapped around me. I love your voice and your taste',
   ],
 
   /* --------------------------------- SECTION 4 — 3D spiral scrapbook */
@@ -165,19 +161,18 @@ it is yours.`,
     { url: pj('ribbon-002'), position: [3.2, 1.4, 0.5] },
     { url: pj('ribbon-003'), position: [-3.4, 0.8, 1.2] },
     { url: pj('ribbon-004'), position: [1.8, -1.9, 2.4] },
-    { url: pj('ribbon-005'), position: [-2.1, -2.2, -1.6] },
+    { url: pj('gal-005'), position: [-2.1, -2.2, -1.6] },
     { url: pj('ribbon-006'), position: [4.6, -0.6, -2.8] },
-    { url: pj('ribbon-007'), position: [-4.8, 1.9, -1.1] },
+    { url: pj('gal-007'), position: [-4.8, 1.9, -1.1] },
     { url: pj('ribbon-008'), position: [0.9, 2.8, 2.9] },
-    { url: pj('ribbon-009'), position: [-1.2, 3.1, -3.2] },
-    { url: pj('ribbon-010'), position: [2.6, 0.2, 4.1] },
-    { url: pj('ribbon-011'), position: [-2.9, -0.9, 3.8] },
-    { url: pj('ribbon-012'), position: [5.4, 2.4, 1.8] },
-    { url: pj('ribbon-013'), position: [-5.2, -1.8, 2.1] },
+    { url: pj('gal-009'), position: [-1.2, 3.1, -3.2] },
+    { url: pj('gal-010'), position: [2.6, 0.2, 4.1] },
+    { url: pj('gal-011'), position: [-2.9, -0.9, 3.8] },
+    { url: pj('gal-012'), position: [5.4, 2.4, 1.8] },
     { url: pj('ribbon-014'), position: [1.1, -3.4, -3.6] },
-    { url: pj('ribbon-015'), position: [-0.8, -3.2, 4.4] },
-    { url: pj('ribbon-016'), position: [3.8, -2.6, -0.8] },
-    { url: pj('ribbon-017'), position: [-3.9, 3.0, 0.4] },
+    { url: pj('gal-015'), position: [-0.8, -3.2, 4.4] },
+    { url: pj('gal-016'), position: [3.8, -2.6, -0.8] },
+    { url: pj('gal-017'), position: [-3.9, 3.0, 0.4] },
     { url: pj('ribbon-018'), position: [0.2, -0.8, -4.6] },
   ] as GalaxyPhoto[],
 
