@@ -65,7 +65,7 @@ export const birthdayConfig = {
     title: 'Apocalypse',
     artist: 'C.A.S.',
     /** Set to '/song.mp3' after you add the file to public/. */
-    audioUrl: '/song.mp3',
+    audioUrl: `${import.meta.env.BASE_URL}song.mp3`,
     coverUrl: p('song-cover'),
   },
 
