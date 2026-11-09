@@ -71,7 +71,7 @@ export const birthdayConfig = {
 
   /* ------------------------------------- SECTION 2 — looped photo ribbon */
   ribbonPhotos: [
-    pj('ribbon-001'), pj('ribbon-002'), pj('ribbon-003'), pj('ribbon-004'),
+    pj('ribbon-001'), pj('pol-004'), pj('ribbon-003'), pj('ribbon-004'),
     pj('ribbon-005'), pj('ribbon-006'), pj('ribbon-007'), pj('ribbon-008'),
     pj('ribbon-009'), pj('ribbon-010'), pj('ribbon-011'), pj('ribbon-012'),
     pj('ribbon-013'), pj('ribbon-014'), pj('ribbon-015'), pj('ribbon-016'),
@@ -80,7 +80,7 @@ export const birthdayConfig = {
 
   greeting: {
     heading: 'Happy Birthday',
-    paragraph: `I know I don't always find the right words to tell you how much you mean to me, so I put my heart into making this instead. I find myself constantly replaying all the beautiful moments we've shared, and putting this together brought every single one of them rushing back. Make sure the volume is up — I had to include our song. Take your time scrolling through. Every detail here is a piece of us that I cherish, and this little space is entirely yours. Happy Birthday. I can't wait for all the memories we haven't even made yet. ❤️`,
+    paragraph: `I know I don't always find the right words to tell you how much you mean to me, so I put my heart into making this. I find myself constantly replaying all the beautiful moments we've shared, and putting this together brought every single one of them rushing back. Make sure the volume is up — I had to include our song. Take your time scrolling through. Every detail here is something that I cherish, and this little space is entirely yours. Happy Birthday. I can't wait for all the memories we haven't even made yet. ❤️`,
   },
 
   /* --------------------------------- SECTION 3 — draggable polaroid board */
@@ -91,8 +91,8 @@ export const birthdayConfig = {
     { id: 4, imageUrl: pj('gal-007'), caption: 'My favourite 🌙', x: 64, y: 9,  rotation: 9 },
     { id: 5, imageUrl: pj('gal-016'), caption: 'Sexiest 😚',  x: 14, y: 52, rotation: 7 },
     { id: 6, imageUrl: pj('ribbon-001'), caption: 'Us, always 🤍',    x: 34, y: 58, rotation: -6 },
-    { id: 7, imageUrl: pj('ribbon-005'), caption: 'Prettiest 🌸',     x: 55, y: 54, rotation: 4 },
-    { id: 8, imageUrl: pj('ribbon-002'), caption: 'Home 🏠',          x: 73, y: 50, rotation: -9 },
+    { id: 7, imageUrl: pj('pol-003'), caption: 'Prettiest 🌸',     x: 55, y: 54, rotation: 4 },
+    { id: 8, imageUrl: pj('pol-004'), caption: 'Home 🏠',          x: 73, y: 50, rotation: -9 },
   ] as Polaroid[],
 
   /** Butterfly easter eggs — one note per butterfly. */
@@ -109,11 +109,11 @@ export const birthdayConfig = {
       title: 'How it started',
       dateLabel: 'the beginning',
       leftPhotos: [
-        { url: p('scrap-1a'), rotation: -5 },
+        { url: pj('scrap-002'), rotation: -5 },
         { url: p('scrap-1b'), rotation: 6 },
       ],
-      rightPhotos: [{ url: p('scrap-1c'), rotation: 3 }],
-      leftNote: 'The first photo of us. You said you hated it. I kept it anyway.',
+      rightPhotos: [{ url: pj('scrap-01'), rotation: 3 }],
+      leftNote: 'The first photo of us.',
       rightNote: 'Day one of my favourite thing ever.',
       stickers: ['🍒', '🎀', '📼'],
     },
@@ -121,26 +121,26 @@ export const birthdayConfig = {
       id: 2,
       title: 'All the little days',
       dateLabel: 'the ordinary magic',
-      leftPhotos: [{ url: p('scrap-2a'), rotation: 4 }],
+      leftPhotos: [{ url: pj('scrap-003'), rotation: 4 }],
       rightPhotos: [
-        { url: p('scrap-2b'), rotation: -7 },
-        { url: p('scrap-2c'), rotation: 5 },
+        { url: pj('ribbon-002'), rotation: -7 },
+        { url: pj('ribbon-004'), rotation: 5 },
       ],
-      leftNote: 'Tea, rain, nowhere to be. Perfect.',
-      rightNote: 'You laughing at your own joke — my favourite genre of photo.',
+      leftNote: 'Warm, cozy, nowhere to be. Perfect.',
+      rightNote: 'You said you hated, I still kept it — My body yet to be marked by you.',
       stickers: ['🐈', '🌼', '💌'],
     },
     {
       id: 3,
-      title: 'Places we ran away to',
-      dateLabel: 'the adventures',
+      title: 'Showing up for it all',
+      dateLabel: 'always and everyday',
       leftPhotos: [
-        { url: p('scrap-3a'), rotation: -6 },
-        { url: p('scrap-3b'), rotation: 7 },
+        { url: pj('ribbon-018'), rotation: -6 },
+        { url: pj('ribbon-006'), rotation: 7 },
       ],
-      rightPhotos: [{ url: p('scrap-3c'), rotation: -3 }],
-      leftNote: 'We got hopelessly lost and you refused to admit it.',
-      rightNote: 'Worth every wrong turn.',
+      rightPhotos: [{ url: pj('scrap-004'), rotation: -3 }],
+      leftNote: 'Ill be there for your boring days, when you are tired or done being kind to this shitty world',
+      rightNote: 'You still owe me the dance video from this night!',
       stickers: ['✈️', '🗺️', '🎞️'],
     },
     {
@@ -161,7 +161,7 @@ export const birthdayConfig = {
     { url: pj('ribbon-002'), position: [3.2, 1.4, 0.5] },
     { url: pj('ribbon-003'), position: [-3.4, 0.8, 1.2] },
     { url: pj('ribbon-004'), position: [1.8, -1.9, 2.4] },
-    { url: pj('gal-005'), position: [-2.1, -2.2, -1.6] },
+    { url: p('gal-05'), position: [-2.1, -2.2, -1.6] },
     { url: pj('ribbon-006'), position: [4.6, -0.6, -2.8] },
     { url: pj('gal-007'), position: [-4.8, 1.9, -1.1] },
     { url: pj('ribbon-008'), position: [0.9, 2.8, 2.9] },
@@ -170,7 +170,7 @@ export const birthdayConfig = {
     { url: pj('gal-011'), position: [-2.9, -0.9, 3.8] },
     { url: pj('gal-012'), position: [5.4, 2.4, 1.8] },
     { url: pj('ribbon-014'), position: [1.1, -3.4, -3.6] },
-    { url: pj('gal-015'), position: [-0.8, -3.2, 4.4] },
+    { url: p('gal-15'), position: [-0.8, -3.2, 4.4] },
     { url: pj('gal-016'), position: [3.8, -2.6, -0.8] },
     { url: pj('gal-017'), position: [-3.9, 3.0, 0.4] },
     { url: pj('ribbon-018'), position: [0.2, -0.8, -4.6] },
