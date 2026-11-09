@@ -71,7 +71,7 @@ export const birthdayConfig = {
 
   /* ------------------------------------- SECTION 2 — looped photo ribbon */
   ribbonPhotos: [
-    pj('ribbon-001'), pj('pol-004'), pj('ribbon-003'), pj('ribbon-004'),
+    pj('ribbon-001'), pj('pol-004'), pj('ribbon-003'), pj('pol-002'),
     pj('ribbon-005'), pj('ribbon-006'), pj('ribbon-007'), pj('ribbon-008'),
     pj('ribbon-009'), pj('ribbon-010'), pj('ribbon-011'), pj('ribbon-012'),
     pj('ribbon-013'), pj('ribbon-014'), pj('ribbon-015'), pj('ribbon-016'),

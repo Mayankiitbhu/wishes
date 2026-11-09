@@ -116,7 +116,7 @@ export default function PhotoRibbon() {
             return (
               <motion.div
                 key={i}
-                className="group absolute"
+                className="group absolute hover:z-30"
                 style={{
                   left: `${(s.x / VB) * 100}%`,
                   top: `${(s.y / VB) * 100}%`,
