@@ -203,20 +203,65 @@ function FlameParticles() {
   );
 }
 
+/* -------------------------------------------------------------- countdown */
+
+const UNLOCK_MS = new Date(birthdayConfig.unlockAt).getTime();
+
+/** Milliseconds left until the curtain may be opened (0 once reached). */
+function useRemaining() {
+  const [left, setLeft] = useState(() => Math.max(0, UNLOCK_MS - Date.now()));
+  useEffect(() => {
+    if (left <= 0) return;
+    const id = setInterval(() => {
+      const next = Math.max(0, UNLOCK_MS - Date.now());
+      setLeft(next);
+      if (next <= 0) clearInterval(id);
+    }, 250);
+    return () => clearInterval(id);
+  }, [left <= 0]); // eslint-disable-line react-hooks/exhaustive-deps
+  return left;
+}
+
+function Countdown({ ms }: { ms: number }) {
+  const total = Math.ceil(ms / 1000);
+  const parts = [
+    { label: 'days', value: Math.floor(total / 86400) },
+    { label: 'hours', value: Math.floor((total % 86400) / 3600) },
+    { label: 'minutes', value: Math.floor((total % 3600) / 60) },
+    { label: 'seconds', value: total % 60 },
+  ];
+  return (
+    <div className="flex items-start gap-3 sm:gap-6" role="timer" aria-live="off">
+      {parts.map((p) => (
+        <div key={p.label} className="flex min-w-[3.5rem] flex-col items-center sm:min-w-[5rem]">
+          <span className="font-serif text-4xl font-bold tabular-nums text-amber-50 drop-shadow-[0_2px_20px_rgba(0,0,0,0.9)] sm:text-6xl">
+            {String(p.value).padStart(2, '0')}
+          </span>
+          <span className="mt-1 text-[10px] uppercase tracking-[0.35em] text-amber-100/60 sm:text-xs">
+            {p.label}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 /* ------------------------------------------------------------------ main */
 
 export default function CurtainReveal({ onOpened }: { onOpened: () => void }) {
   const { oldAge, newAge, girlfriendName } = birthdayConfig;
   const { start } = useAudio();
   const [stage, setStage] = useState<Stage>('curtain');
+  const remaining = useRemaining();
+  const unlocked = remaining <= 0;
 
   const oldDigits = useMemo(() => String(oldAge).split('').map(Number), [oldAge]);
 
   const openCurtain = useCallback(() => {
-    if (stage !== 'curtain') return;
+    if (stage !== 'curtain' || !unlocked) return;
     setStage('rolling');
     onOpened();
-  }, [stage, onOpened]);
+  }, [stage, unlocked, onOpened]);
 
   const blowOut = useCallback(() => {
     if (stage !== 'locked') return;
@@ -385,8 +430,8 @@ export default function CurtainReveal({ onOpened }: { onOpened: () => void }) {
             type="button"
             onClick={openCurtain}
             exit={{ opacity: 1 }}
-            className="absolute inset-0 z-40 cursor-pointer"
-            aria-label="Open the curtains"
+            className={`absolute inset-0 z-40 ${unlocked ? 'cursor-pointer' : 'cursor-default'}`}
+            aria-label={unlocked ? 'Open the curtains' : 'Curtains open at midnight'}
           >
             {/* top valance */}
             <div className="velvet absolute inset-x-0 top-0 z-10 h-16 shadow-[0_14px_40px_rgba(0,0,0,0.8)]" />
@@ -417,16 +462,27 @@ export default function CurtainReveal({ onOpened }: { onOpened: () => void }) {
               className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3"
               exit={{ opacity: 0, transition: { duration: 0.5 } }}
             >
-              <motion.p
-                animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.03, 1] }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
-                className="font-serif text-4xl italic text-amber-50 drop-shadow-[0_2px_20px_rgba(0,0,0,0.9)] md:text-5xl"
-              >
-                Click anywhere
-              </motion.p>
-              <p className="text-xs uppercase tracking-[0.45em] text-amber-100/60">
-                something is waiting for you
-              </p>
+              {unlocked ? (
+                <>
+                  <motion.p
+                    animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.03, 1] }}
+                    transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+                    className="font-serif text-4xl italic text-amber-50 drop-shadow-[0_2px_20px_rgba(0,0,0,0.9)] md:text-5xl"
+                  >
+                    Click anywhere
+                  </motion.p>
+                  <p className="text-xs uppercase tracking-[0.45em] text-amber-100/60">
+                    something is waiting for you
+                  </p>
+                </>
+              ) : (
+                <>
+                  <Countdown ms={remaining} />
+                  <p className="mt-3 text-xs uppercase tracking-[0.45em] text-amber-100/60">
+                    something is waiting for you
+                  </p>
+                </>
+              )}
             </motion.div>
           </motion.button>
         )}

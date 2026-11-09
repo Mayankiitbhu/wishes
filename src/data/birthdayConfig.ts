@@ -59,6 +59,8 @@ export const birthdayConfig = {
   girlfriendName: 'Reet',
   oldAge: 25,
   newAge: 26,
+  /** The curtain stays shut until this moment: 11 Nov 2026, 00:00 IST. */
+  unlockAt: '2026-11-19T12:45:00+05:30',
 
   /* ------------------------------------------------------------------ song */
   song: {
