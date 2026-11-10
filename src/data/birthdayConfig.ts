@@ -60,7 +60,7 @@ export const birthdayConfig = {
   oldAge: 25,
   newAge: 26,
   /** The curtain stays shut until this moment: 11 Nov 2026, 00:00 IST. */
-  unlockAt: '2026-11-09T12:45:00+05:30',
+  unlockAt: '2026-11-11T00:00:00+05:30',
 
   /* ------------------------------------------------------------------ song */
   song: {
@@ -187,7 +187,7 @@ export const birthdayConfig = {
   chatContact: {
     name: 'Pohaaaa ❤️',
     subtitle: 'Always online for you',
-    avatarUrl: p('avatar'),
+    avatarUrl: pj('pol-003'),
   },
 } as const;
 
